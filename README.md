@@ -26,10 +26,12 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 ---
 
 # How to add svg as ReactComponent support:
-
 1 - `yarn add @svgr/webpack --dev`
+
 2 - `yarn add url-loader --dev`
+
 3 - create `next.config.js` file in root dir and paste:
+
 ```
 module.exports = {
   webpack(config) {
@@ -46,8 +48,10 @@ module.exports = {
 };
 ```
 
+
 4 - create file with svg type declarations, for example: `types/svg.d.ts` and paste:
 ```
+
 declare module "*.svg" {
   export const ReactComponent: React.FunctionComponent<
     React.SVGAttributes<SVGElement>
@@ -58,8 +62,11 @@ declare module "*.svg" {
 
 ```
 
+
 5 - make sure that in `tsconfig.json` you have included that `next.config.ts` file like: `"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"]`
+
 6 - now you can use it just like in Create React App:
+
 ```
 import LogoURL, { ReactComponent as LogoComp } from "assets/logo.svg";
 
@@ -70,12 +77,18 @@ import LogoURL, { ReactComponent as LogoComp } from "assets/logo.svg";
 
 ---
 
+
 # how to add react hooks rules:
 
+
 1 - `yarn add eslint -D`
+
 2 - `yarn add eslint-plugin-react-hooks -D`
+
 3 - `yarn add @typescript-eslint/parser -D`
+
 4 - in root dir make `.eslintrc.json` file and pase:
+
 ```
 {
   "parser": "@typescript-eslint/parser",
@@ -89,4 +102,5 @@ import LogoURL, { ReactComponent as LogoComp } from "assets/logo.svg";
   }
 }
 ```
+
 5 - restart your Visual Studio Code and when you open it again it will show you that you're missing some depenencies in `useEffect` hook itd
